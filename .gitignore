@@ -83,3 +83,4 @@ hs_err_pid*
 .project
 build/**
 target/
+WebContent/WEB-INF/config.properties
