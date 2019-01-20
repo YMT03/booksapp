@@ -20,7 +20,6 @@
 	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
@@ -53,8 +52,9 @@
 		</c:if>
 <!-- /ERRORES FORM -->
 <!-- FORM -->
-		<form:form action="/app/authors/add" method="POST"
+		<form:form action="/app/authors/save" method="POST"
 			modelAttribute="author">
+			<form:hidden path="id"/>
 			<form:label path="name">Nombre</form:label>
 			<form:input path="name" />
 			<form:label path="lastName">Apellido</form:label>
@@ -65,6 +65,5 @@
 
 	</div>
 
-	<script src="/app/resources/js/form-validation.js"></script>
 </body>
 </html>

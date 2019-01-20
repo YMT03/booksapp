@@ -7,12 +7,27 @@ import i.e.ramos.bo.Author;
 import i.e.ramos.constants.messages.ValidationMsg;
 
 public class AuthorForm {
-	
+
+	private Long id;
 	@NotBlank(message=ValidationMsg.FORM_AUTHOR_NAME)
 	private String name;
 	@NotBlank(message=ValidationMsg.FORM_AUTHOR_LASTNAME)
 	private String lastName;
-	
+
+	public AuthorForm() {}
+
+	public AuthorForm(Author author) {
+		this.id = author.getId();
+		this.name = author.getName();
+		this.lastName = author.getLastName();
+	}
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -25,13 +40,14 @@ public class AuthorForm {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	public Author toAuthor() {
+
+	public Author getAuthor() {
 		Author author = new Author();
+		author.setId(id);
 		author.setName(name);
-		author.setLastName(lastName);
+		author.setLastName(lastName);		
 		return author;
 	}
-	
+
 
 }
