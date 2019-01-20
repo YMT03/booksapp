@@ -31,53 +31,38 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/app/resources/css/style.css">
 
-<title>Libros</title>
+<title>Autores</title>
 </head>
 <body>
 	<jsp:include page="../static/header.jsp" />
 	<div class="container theme-showcase" role="main">
 
 		<br> <br>
-		<h3>Listado de Autores</h3>
-
-<!-- SUCCESS MSGS. WHEN CREATING A NEW AUTHOR  -->
-		<c:if test="${successMsgs!=null}">
-			<div class="alert alert-success" role="alert">
-				<ul class="notificationUL">
-					<c:forEach items="${ successMsgs }" var="successMsg">
-						<li>${ successMsg }</li>
-					</c:forEach>
-				</ul>
+		<h3>Agregar nuevo Autor</h3>
+<!-- ERRORES FORM -->
+		<c:if test="${errorMsgs!=null}">
+			<div class="alert alert-warning" role="alert">
+			<ul class="notificationUL">
+			<c:forEach items="${ errorMsgs }" var="errorMsg">
+			<li>
+			${ errorMsg }
+			</li>
+			</c:forEach>
+			</ul>
 			</div>
 		</c:if>
-<!-- /SUCCESS MSGS   -->
+<!-- /ERRORES FORM -->
+<!-- FORM -->
+		<form:form action="/app/authors/add" method="POST"
+			modelAttribute="author">
+			<form:label path="name">Nombre</form:label>
+			<form:input path="name" />
+			<form:label path="lastName">Apellido</form:label>
+			<form:input path="lastName" />
+			<input type="submit" value="Aceptar" />
+		</form:form>
+<!-- FIN FORM -->
 
-		<a href="/app/authors/add"><button type="button" class="btn btn-primary">Nuevo</button></a>
-		<br>
-
-
-<!-- TABLE  -->
-		<div class="table-responsive">
-			<table class="table table-hover table-striped table-bordered">
-				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Opciones</th>
-				</tr>
-				<c:forEach items="${authors}" var="authorItem">
-					<tr>
-						<td>${authorItem.name}</td>
-						<td>${authorItem.lastName}</td>
-						<td><a href="/app/authors/edit?id=${authorItem.id}"><i
-								class="fas fa-edit"></i></a> <a
-							href="/app/authors/remove?id=${authorItem.id}"><i
-								class="fas fa-trash-alt"></i></span></a></td>
-					</tr>
-				</c:forEach>
-
-			</table>
-		</div>
-<!-- /TABLE  -->
 	</div>
 
 	<script src="/app/resources/js/form-validation.js"></script>
