@@ -8,10 +8,11 @@
 <spring:url value="/genres" var="urlGenres"></spring:url>
 <spring:url value="/books" var="urlBooks"></spring:url>
 <spring:url value="/" var="urlRoot"></spring:url>
+<spring:url value="/resources/img" var="urlImages"></spring:url>
 <!-- NAVBAR-->
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand col-12 col-lg-1 d-flex justify-content-center" href=""><img src="/app/resources/img/logo.png" alt="Java" height="80px"></a>  
+    <a class="navbar-brand col-12 col-lg-1 d-flex justify-content-center" href=""><img src="${ urlImages }/logo.png" alt="Java" height="80px"></a>  
     
       <ul class="navbar-nav justify-content-xl-center flex-fill col-xl-7 align-items-center ">
         <li class="nav-item d-inline-flex">
