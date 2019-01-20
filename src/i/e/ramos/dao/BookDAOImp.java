@@ -14,14 +14,8 @@ public class BookDAOImp implements BookDAO {
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public Long save(Book book) {
-		sessionfactory.getCurrentSession().save(book);
-		return book.getId();
-	}
-
-	@Override
-	public Long update(Book book) {
-		sessionfactory.getCurrentSession().update(book);
+	public Long upsert(Book book) {
+		sessionfactory.getCurrentSession().saveOrUpdate(book);
 		return book.getId();
 	}
 

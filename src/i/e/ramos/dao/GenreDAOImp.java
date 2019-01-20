@@ -14,14 +14,8 @@ public class GenreDAOImp implements GenreDAO {
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public Long save(Genre genre) {
-		sessionfactory.getCurrentSession().save(genre);
-		return genre.getId();
-	}
-
-	@Override
-	public Long update(Genre genre) {
-		sessionfactory.getCurrentSession().update(genre);
+	public Long upsert(Genre genre) {
+		sessionfactory.getCurrentSession().saveOrUpdate(genre);
 		return genre.getId();
 	}
 

@@ -28,14 +28,10 @@ public class BookServiceImp implements BookService {
 	private PublisherDAO publisherDAO;
 	@Autowired
 	private AuthorDAO authorDAO;
-	@Override
-	public Long saveBook(Book book) {
-		return bookDAO.save(book);
-	}
 	
 	@Override
-	public Long updateBook(Book book) {
-		return bookDAO.update(book);
+	public Long upsertBook(Book book) {
+		return bookDAO.upsert(book);
 	}
 
 	@Override

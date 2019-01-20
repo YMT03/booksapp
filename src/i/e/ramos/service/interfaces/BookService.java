@@ -9,11 +9,10 @@ import i.e.ramos.bo.Publisher;
 
 public interface BookService {
 	
-	Long saveBook(Book book);
+	Long upsertBook(Book book);
 	Book getBookById(Long id);
 	List<Book> getAllBooks();
 	boolean removeBookById(Long id);
-	Long updateBook(Book book);
 	List<Genre> getAllGenres();
 	List<Publisher> getAllPublishers();
 	List<Author> getAllAuthors();

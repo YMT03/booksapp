@@ -17,13 +17,8 @@ public class GenreServiceImp implements GenreService {
 	@Autowired
 	private GenreDAO genreDAO;
 	@Override
-	public Long saveGenre(Genre genre) {
-		return genreDAO.save(genre);
-	}
-
-	@Override
-	public Long updateGenre(Genre genre) {
-		return genreDAO.update(genre);
+	public Long upsertGenre(Genre genre) {
+		return genreDAO.upsert(genre);
 	}
 
 	@Override

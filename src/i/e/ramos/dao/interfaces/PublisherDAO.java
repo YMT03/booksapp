@@ -5,10 +5,9 @@ import i.e.ramos.bo.Publisher;
 
 public interface PublisherDAO {
 	
-	Long save(Publisher publisher);
+	Long upsert(Publisher publisher);
 	Publisher getById(Long id);
 	List<Publisher> getAll();
 	boolean removeById(Long id);
-	Long update(Publisher publisher);
 
 }

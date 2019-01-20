@@ -5,10 +5,9 @@ import i.e.ramos.bo.Book;
 
 public interface BookDAO {
 	
-	Long save(Book book);
+	Long upsert(Book book);
 	Book getById(Long id);
 	List<Book> getAll();
 	boolean removeById(Long id);
-	Long update(Book book);
 
 }

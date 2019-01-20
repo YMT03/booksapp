@@ -5,10 +5,9 @@ import i.e.ramos.bo.Genre;
 
 public interface GenreService {
 	
-	Long saveGenre(Genre genre);
+	Long upsertGenre(Genre genre);
 	Genre getGenreById(Long id);
 	List<Genre> getAllGenres();
 	boolean removeGenreById(Long id);
-	Long updateGenre(Genre genre);
 
 }

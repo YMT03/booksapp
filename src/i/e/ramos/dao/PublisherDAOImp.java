@@ -14,14 +14,8 @@ public class PublisherDAOImp implements PublisherDAO {
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public Long save(Publisher publisher) {
-		sessionfactory.getCurrentSession().save(publisher);
-		return publisher.getId();
-	}
-
-	@Override
-	public Long update(Publisher publisher) {
-		sessionfactory.getCurrentSession().update(publisher);
+	public Long upsert(Publisher publisher) {
+		sessionfactory.getCurrentSession().saveOrUpdate(publisher);
 		return publisher.getId();
 	}
 

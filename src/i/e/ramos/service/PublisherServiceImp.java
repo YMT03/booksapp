@@ -18,13 +18,8 @@ public class PublisherServiceImp implements PublisherService {
 	@Autowired
 	private PublisherDAO publisherDAO;
 	@Override
-	public Long savePublisher(Publisher author) {
-		return publisherDAO.save(author);
-	}
-	
-	@Override
-	public Long updatePublisher(Publisher publisher) {
-		return publisherDAO.update(publisher);
+	public Long upsertPublisher(Publisher author) {
+		return publisherDAO.upsert(author);
 	}
 
 	@Override
