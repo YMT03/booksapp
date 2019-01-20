@@ -9,9 +9,9 @@ import i.e.ramos.constants.messages.ValidationMsg;
 public class AuthorForm {
 
 	private Long id;
-	@NotBlank(message=ValidationMsg.FORM_AUTHOR_NAME)
+	@NotBlank(message=ValidationMsg.FORM_NAME_BLANK)
 	private String name;
-	@NotBlank(message=ValidationMsg.FORM_AUTHOR_LASTNAME)
+	@NotBlank(message=ValidationMsg.FORM_LASTNAME_BLANK)
 	private String lastName;
 
 	public AuthorForm() {}

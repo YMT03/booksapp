@@ -20,7 +20,6 @@
 	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
@@ -29,7 +28,7 @@
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
-
+<link rel="stylesheet" type="text/css" href="/app/resources/css/style.css">
 <title>Editoriales</title>
 </head>
 <body>
@@ -38,52 +37,20 @@
 
 		<br> <br>
 		<h3>Listado de Editoriales</h3>
-		<c:if test="${errores!=null}">
-			<c:forEach items="${ errores }" var="error">
-				<div class="alert alert-warning" role="alert">${error.code}</div>
-			</c:forEach>
-
-		</c:if>
-
-		<button type="button" class="btn btn-primary" data-toggle="modal"
-			data-target="#authorMordal">Nueva</button>
-
-		<!-- Modal -->
-		<div class="modal fade" id="authorMordal" tabindex="-1" role="dialog"
-			aria-labelledby="authorModalTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="authorModalLongTitle">Nueva Editorial</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form:form name="publisherForm" method="POST"
-							action="/app/publishers/add" modelAttribute="publisher">
-							<table>
-								<tr>
-									<td><form:label path="name">Nombre</form:label></td>
-									<td><form:input path="name"/> <form:errors path="name" />
-									</td>
-								</tr>
-							</table>
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Cancelar</button>
-							<button type="submit" class="btn btn-primary">Guardar</button>
-						</form:form>
-					</div>
-
-				</div>
+		
+<!-- SUCCESS MSGS. WHEN CREATING A NEW PUBLISHER  -->
+		<c:if test="${successMsgs!=null}">
+			<div class="alert alert-success" role="alert">
+				<ul class="notificationUL">
+					<c:forEach items="${ successMsgs }" var="successMsg">
+						<li>${ successMsg }</li>
+					</c:forEach>
+				</ul>
 			</div>
-		</div>
+		</c:if>
+<!-- /SUCCESS MSGS   -->
 
-		<!-- FIN MODAL -->
-
-		<!-- <a href="authors/add" class="btn btn-success" role="button"
-			title="Nuevo Autor">Nuevo</a><br> -->
+		<a href="/app/publishers/add"><button type="button" class="btn btn-primary">Nueva</button></a>
 		<br>
 
 		<div class="table-responsive">
@@ -106,7 +73,5 @@
 		</div>
 
 	</div>
-
-	<script src="/app/resources/js/form-validation.js"></script>
 </body>
 </html>
