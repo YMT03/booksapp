@@ -15,8 +15,8 @@ public class AuthorDAOImp implements AuthorDAO {
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public Long save(Author author) {
-		sessionfactory.getCurrentSession().save(author);
+	public Long upsert(Author author) {
+		sessionfactory.getCurrentSession().saveOrUpdate(author);
 		return author.getId();
 	}
 
@@ -36,12 +36,6 @@ public class AuthorDAOImp implements AuthorDAO {
 		Author author = getById(id);
 		sessionfactory.getCurrentSession().delete(author);
 		return true;
-	}
-
-	@Override
-	public Long update(Author author) {
-		sessionfactory.getCurrentSession().update(author);
-		return author.getId();
 	}
 	
 	

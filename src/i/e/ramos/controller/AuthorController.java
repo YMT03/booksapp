@@ -48,29 +48,16 @@ public class AuthorController {
 	@PostMapping("/save")
 	public String save(Model model, @ModelAttribute("author") @Valid AuthorForm authorForm, BindingResult result, RedirectAttributes redirectAttributes) {
 		
-		
-		if(result.hasErrors()) {
-			List<String> errorsList = new ArrayList<>();
-			result.getAllErrors().forEach(x->errorsList.add(x.getDefaultMessage()));
-			model.addAttribute("errorMsgs", errorsList);
+		if(result.hasErrors()) {			
+			model.addAttribute("errorMsgs", getErrors(result));
 			return "authors/form";
 		}
 		
-		//IF ID EXISTS. ITS AN UPDATE
-		if(authorForm.getId()!=null) {
-			authorService.updateAuthor(authorForm.getAuthor());
-			redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.AUTHOR_EDITED_SUCCESSFULY));
-		}
-		//ELSE ITS A CREATION
-		else {
-			authorService.saveAuthor(authorForm.getAuthor());
-			redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.AUTHOR_CREATED_SUCCESSFULY));
-		}
-		
+		redirectAttributes.addFlashAttribute("successMsgs",getSuccessMsgs(authorForm.getId()!=null));
+		authorService.upsertAuthor(authorForm.getAuthor());
 		return "redirect:/authors";
 	}
-	
-	
+
 	/**DELETE**/
 	@GetMapping("/remove")
 	public String remove(Model model, @RequestParam("id") Long id) {
@@ -83,6 +70,23 @@ public class AuthorController {
 	public String edit(Model model, @RequestParam("id") Long id) {
 		model.addAttribute("author",new AuthorForm(authorService.getAuthorById(id)));
 		return "authors/form";
+	}
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	private List<String> getSuccessMsgs(boolean alreadyExists){
+		if(alreadyExists)
+			return Arrays.asList(SuccessMsg.AUTHOR_EDITED_SUCCESSFULY);
+		else
+			return Arrays.asList(SuccessMsg.AUTHOR_CREATED_SUCCESSFULY);
+	}
+	
+	private Object getErrors(BindingResult result) {
+		List<String> errorsList = new ArrayList<>();
+		result.getAllErrors().forEach(x->errorsList.add(x.getDefaultMessage()));
+		return errorsList;
 	}
 
 

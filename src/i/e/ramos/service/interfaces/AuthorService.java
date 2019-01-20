@@ -6,10 +6,9 @@ import i.e.ramos.bo.Author;
 
 public interface AuthorService {
 	
-	Long saveAuthor(Author author);
+	Long upsertAuthor(Author author);
 	Author getAuthorById(Long id);
 	List<Author> getAllAuthors();
 	boolean removeAuthorById(Long id);
-	Long updateAuthor(Author author);
-
+	
 }

@@ -17,8 +17,8 @@ public class AuthorServiceImp implements AuthorService {
 	@Autowired
 	private AuthorDAO authorDAO;
 	@Override
-	public Long saveAuthor(Author author) {
-		return authorDAO.save(author);
+	public Long upsertAuthor(Author author) {
+		return authorDAO.upsert(author);
 	}
 
 	@Override
@@ -34,11 +34,6 @@ public class AuthorServiceImp implements AuthorService {
 	@Override
 	public boolean removeAuthorById(Long id) {
 		return authorDAO.removeById(id);
-	}
-
-	@Override
-	public Long updateAuthor(Author author) {
-		return authorDAO.update(author);
 	}
 	
 }
