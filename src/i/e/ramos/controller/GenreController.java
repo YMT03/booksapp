@@ -66,9 +66,10 @@ public class GenreController {
 	}
 		
 	
-	@GetMapping(value= "/remove")
-	public String remove(Model model, @RequestParam("id") Long id) {
+	@GetMapping("/remove")
+	public String remove(Model model, @RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
 		genreService.removeGenreById(id);
+		redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.GENRE_REMOVED_SUCCESSFULY));
 		return "redirect:/genres";
 	}
 

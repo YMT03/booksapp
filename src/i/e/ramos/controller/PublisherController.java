@@ -64,8 +64,9 @@ public class PublisherController {
 	}
 
 	@GetMapping("/remove")
-	public String remove(Model model, @RequestParam("id") Long id) {
+	public String remove(Model model, @RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
 		publisherService.removePublisherById(id);
+		redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.PUBLISHER_REMOVED_SUCCESSFULY));
 		return "redirect:/publishers";
 	}
 

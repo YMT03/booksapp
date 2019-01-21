@@ -60,8 +60,9 @@ public class AuthorController {
 
 	/**DELETE**/
 	@GetMapping("/remove")
-	public String remove(Model model, @RequestParam("id") Long id) {
+	public String remove(Model model, @RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
 		authorService.removeAuthorById(id);
+		redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.AUTHOR_REMOVED_SUCCESSFULY));
 		return "redirect:/authors";
 	}
 	

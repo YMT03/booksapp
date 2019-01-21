@@ -1,6 +1,8 @@
 package i.e.ramos.controller;
 
 
+import java.util.Arrays;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import i.e.ramos.bo.Book;
+import i.e.ramos.constants.messages.SuccessMsg;
 import i.e.ramos.controller.form.BookForm;
 import i.e.ramos.service.interfaces.BookService;
 
@@ -33,8 +36,9 @@ public class BookController {
 	}
 
 	@GetMapping("/remove")
-	public String remove(Model model, @RequestParam("id") Long id) {
+	public String remove(Model model, @RequestParam("id") Long id, RedirectAttributes redirectAttributes) {
 		bookService.removeBookById(id);
+		redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.BOOK_REMOVED_SUCCESSFULY));
 		return "redirect:/books";
 	}
 
