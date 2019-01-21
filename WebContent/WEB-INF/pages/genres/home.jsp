@@ -43,8 +43,10 @@
 					<tr>
 						<td>${genre.name}</td>
 						<td><a href="${ editURL }?id=${genre.id}"><i
-								class="fas fa-edit"></i></a> <a href="${ removeURL }?id=${genre.id}"><i
-								class="fas fa-trash-alt"></i></a></td>
+								class="fas fa-edit"></i></a> <a href="#"><i
+								class="fas fa-trash-alt" data-toggle="modal"
+								data-target="#modalConfirm"
+								data-href="${ removeURL }?id=${genre.id}"></i></a></td>
 					</tr>
 				</c:forEach>
 
@@ -52,6 +54,33 @@
 		</div>
 
 	</div>
-
+	<!-- Modal -->
+	<div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog"
+		aria-labelledby="modalConfirmTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalConfirmLongTitle">Eliminar
+						genero</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					¿Esta seguro que quiere eliminar el genero seleccionado?<br> <strong>Esta
+						accion no se puede deshacer</strong> </i>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancelar</button>
+					<a id="dynamicLink"><button type="button"
+							class="btn btn-primary">Confirmar</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Modal -->
+	<jsp:include page="../static/footer.jsp" />
 </body>
 </html>
