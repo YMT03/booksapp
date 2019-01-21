@@ -7,7 +7,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<value>/WEB-INF/config.properties</value>
+			<value>/WEB-INF/db/config.properties</value>
 		</property>
 	</bean>
 

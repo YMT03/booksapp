@@ -10,4 +10,8 @@ public class SuccessMsg {
 	public static final String PUBLISHER_CREATED_SUCCESSFULY = "Editorial creada satisfactoriamente";
 	public static final String PUBLISHER_EDITED_SUCCESSFULY = "Editorial modificada satisfactoriamente";
 
+	//GENRE
+	public static final String GENRE_CREATED_SUCCESSFULY = "Genero creado satisfactoriamente";
+	public static final String GENRE_EDITED_SUCCESSFULY = "Genero modificado satisfactoriamente";
+
 }

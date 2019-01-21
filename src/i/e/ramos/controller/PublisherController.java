@@ -44,7 +44,7 @@ public class PublisherController {
 	}
 	
 	@GetMapping("/edit")
-	public String add(Model model, @ModelAttribute("publisher") PublisherForm publisherForm, @RequestParam("id") Long id) {
+	public String add(Model model, @RequestParam("id") Long id) {
 		model.addAttribute("publisher",new PublisherForm(publisherService.getPublisherById(id)));
 		return "publishers/form";
 	}
@@ -63,7 +63,7 @@ public class PublisherController {
 		return "redirect:/publishers";
 	}
 
-	@RequestMapping(value= "/remove", method=RequestMethod.GET )
+	@GetMapping("/remove")
 	public String remove(Model model, @RequestParam("id") Long id) {
 		publisherService.removePublisherById(id);
 		return "redirect:/publishers";

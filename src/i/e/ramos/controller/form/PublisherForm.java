@@ -12,7 +12,7 @@ public class PublisherForm {
 	
 	private Long id;
 	@NotBlank(message=ValidationMsg.FORM_NAME_BLANK)
-	@Size(max=50, message=ValidationMsg.FORM_PUBLISHER_NAME_SIZE)
+	@Size(max=50, message=ValidationMsg.FORM_NAME_SIZE)
 	private String name;
 	
 	public PublisherForm() {}
