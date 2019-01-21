@@ -2,6 +2,7 @@ package i.e.ramos.controller.form;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import i.e.ramos.bo.Author;
 import i.e.ramos.constants.messages.ValidationMsg;
@@ -10,8 +11,10 @@ public class AuthorForm {
 
 	private Long id;
 	@NotBlank(message=ValidationMsg.FORM_NAME_BLANK)
+	@Size(max = 50, message = ValidationMsg.FORM_NAME_SIZE)
 	private String name;
 	@NotBlank(message=ValidationMsg.FORM_LASTNAME_BLANK)
+	@Size(max = 50, message = ValidationMsg.FORM_LASTNAME_SIZE)
 	private String lastName;
 
 	public AuthorForm() {}
