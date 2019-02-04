@@ -3,9 +3,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<spring:url value="/publishers/edit" var="editURL"></spring:url>
+<spring:url value="/publishers/form" var="formURL"></spring:url>
 <spring:url value="/publishers/remove" var="removeURL"></spring:url>
-<spring:url value="/publishers/add" var="addURL"></spring:url>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +31,7 @@
 		</c:if>
 		<!-- /SUCCESS MSGS   -->
 
-		<a href="${ addURL }"><button type="button"
+		<a href="${ formURL }"><button type="button"
 				class="btn btn-primary">Nueva</button></a> <br>
 
 		<div class="table-responsive">
@@ -44,7 +43,7 @@
 				<c:forEach items="${publishers}" var="publisher">
 					<tr>
 						<td>${publisher.name}</td>
-						<td><a href="${ editURL }?id=${publisher.id}"><i
+						<td><a href="${ formURL }?id=${publisher.id}"><i
 								class="fas fa-edit"></i></a> <a href="#"><i
 								class="fas fa-trash-alt" data-toggle="modal"
 								data-target="#modalConfirm"

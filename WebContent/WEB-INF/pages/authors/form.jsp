@@ -32,9 +32,9 @@
 		<form:form action="${ saveURL }" method="POST" modelAttribute="author">
 			<form:hidden path="id" />
 			<form:label path="name">Nombre</form:label>
-			<form:input path="name" />
+			<form:input path="name" class="form-control"/>
 			<form:label path="lastName">Apellido</form:label>
-			<form:input path="lastName" />
+			<form:input path="lastName" class="form-control" />
 			<input type="submit" value="Aceptar" />
 		</form:form>
 		<!-- FIN FORM -->

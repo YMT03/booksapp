@@ -38,24 +38,20 @@ public class PublisherController {
 		return "publishers/home";
 	}
 	
-	@GetMapping("/add")
-	public String add(Model model, @ModelAttribute("publisher") PublisherForm publisherForm) {
+	@GetMapping("/form")
+	public String form(Model model, @ModelAttribute("publisher") PublisherForm publisherForm, @RequestParam(value="id", required=false) Long id) {
+		if(id!=null)
+			model.addAttribute("publisher",new PublisherForm(publisherService.getPublisherById(id)));
 		return "publishers/form";
-	}
-	
-	@GetMapping("/edit")
-	public String add(Model model, @RequestParam("id") Long id) {
-		model.addAttribute("publisher",new PublisherForm(publisherService.getPublisherById(id)));
-		return "publishers/form";
-	}
-	
+	}	
 
 	@PostMapping("/save")
 	public String save(Model model, @ModelAttribute("publisher") @Valid PublisherForm publisherForm, BindingResult result, RedirectAttributes redirectAttributes) {
 		
-		if(result.hasErrors()) {			
-			model.addAttribute("errorMsgs", getErrors(result));
-			return "publishers/form";
+		if(result.hasErrors()) {
+			redirectAttributes.addFlashAttribute("errorMsgs", getErrors(result));
+			redirectAttributes.addFlashAttribute("publisher", publisherForm);
+			return "redirect:/publishers/form";
 		}
 		
 		redirectAttributes.addFlashAttribute("successMsgs",getSuccessMsgs(publisherForm.getId()!=null));

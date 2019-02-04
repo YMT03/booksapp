@@ -22,12 +22,6 @@ public class BookServiceImp implements BookService {
 
 	@Autowired
 	private BookDAO bookDAO;
-	@Autowired
-	private GenreDAO genreDAO;
-	@Autowired
-	private PublisherDAO publisherDAO;
-	@Autowired
-	private AuthorDAO authorDAO;
 	
 	@Override
 	public Long upsertBook(Book book) {
@@ -42,21 +36,6 @@ public class BookServiceImp implements BookService {
 	@Override
 	public List<Book> getAllBooks() {
 		return bookDAO.getAll();
-	}
-
-	@Override
-	public List<Genre> getAllGenres() {
-		return genreDAO.getAll();
-	}
-
-	@Override
-	public List<Publisher> getAllPublishers() {
-		return publisherDAO.getAll();
-	}
-
-	@Override
-	public List<Author> getAllAuthors() {
-		return authorDAO.getAll();
 	}
 
 	@Override

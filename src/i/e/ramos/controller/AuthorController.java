@@ -38,21 +38,21 @@ public class AuthorController {
 		return "authors/home";
 	}
 	
-	
-	/**NEW AUTHOR -> ADDING MODEL ATTRIBUTE TO FORM**/
-	@GetMapping("/add")
-	public String add(Model model, @ModelAttribute("author") AuthorForm author) {
+	/**ADD OR EDIT AUTHOR -> ADDING MODEL ATTRIBUTE TO FORM**/
+	@GetMapping("/form")
+	public String form(Model model, @ModelAttribute("author") AuthorForm author, @RequestParam(value="id",required=false) Long id) {
+		if(id!=null)
+			model.addAttribute("author",new AuthorForm(authorService.getAuthorById(id)));
 		return "authors/form";
 	}
 	
 	@PostMapping("/save")
 	public String save(Model model, @ModelAttribute("author") @Valid AuthorForm authorForm, BindingResult result, RedirectAttributes redirectAttributes) {
-		
-		if(result.hasErrors()) {			
-			model.addAttribute("errorMsgs", getErrors(result));
-			return "authors/form";
+		if(result.hasErrors()) {
+			redirectAttributes.addFlashAttribute("errorMsgs", getErrors(result));
+			redirectAttributes.addFlashAttribute("author", authorForm);
+			return "redirect:/authors/form";
 		}
-		
 		redirectAttributes.addFlashAttribute("successMsgs",getSuccessMsgs(authorForm.getId()!=null));
 		authorService.upsertAuthor(authorForm.getAuthor());
 		return "redirect:/authors";
@@ -64,13 +64,6 @@ public class AuthorController {
 		authorService.removeAuthorById(id);
 		redirectAttributes.addFlashAttribute("successMsgs", Arrays.asList(SuccessMsg.AUTHOR_REMOVED_SUCCESSFULY));
 		return "redirect:/authors";
-	}
-	
-	/**EDIT**/
-	@GetMapping("/edit")
-	public String edit(Model model, @RequestParam("id") Long id) {
-		model.addAttribute("author",new AuthorForm(authorService.getAuthorById(id)));
-		return "authors/form";
 	}
 	
 	

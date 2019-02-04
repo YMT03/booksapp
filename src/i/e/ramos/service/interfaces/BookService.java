@@ -13,8 +13,5 @@ public interface BookService {
 	Book getBookById(Long id);
 	List<Book> getAllBooks();
 	boolean removeBookById(Long id);
-	List<Genre> getAllGenres();
-	List<Publisher> getAllPublishers();
-	List<Author> getAllAuthors();
 
 }

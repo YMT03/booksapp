@@ -22,6 +22,7 @@ import i.e.ramos.bo.Author;
 import i.e.ramos.bo.Genre;
 import i.e.ramos.bo.Publisher;
 import i.e.ramos.constants.messages.SuccessMsg;
+import i.e.ramos.controller.form.AuthorForm;
 import i.e.ramos.controller.form.GenreForm;
 import i.e.ramos.service.interfaces.AuthorService;
 import i.e.ramos.service.interfaces.GenreService;
@@ -40,23 +41,20 @@ public class GenreController {
 		return "genres/home";
 	}
 	
-	@GetMapping("/add")
-	public String add(Model model, @ModelAttribute("genre") GenreForm genreForm) {
-		return "genres/form";
-	}
-	
-	@GetMapping("/edit")
-	public String edit(Model model, @RequestParam("id") Long id) {
-		model.addAttribute("genre", new GenreForm(genreService.getGenreById(id)));
+	@GetMapping("/form")
+	public String form(Model model, @ModelAttribute("genre") GenreForm genreForm, @RequestParam(value="id",required = false) Long id ) {
+		if(id!=null)
+			model.addAttribute("genre",new GenreForm(genreService.getGenreById(id)));
 		return "genres/form";
 	}
 	
 	@PostMapping("/save")
 	public String save(Model model, @ModelAttribute("genre") @Valid GenreForm genreForm, BindingResult result, RedirectAttributes redirectAttributes) {
 		
-		if(result.hasErrors()) {			
-			model.addAttribute("errorMsgs", getErrors(result));
-			return "genres/form";
+		if(result.hasErrors()) {
+			redirectAttributes.addFlashAttribute("errorMsgs", getErrors(result));
+			redirectAttributes.addFlashAttribute("genre", genreForm);
+			return "redirect:/genres/form";
 		}
 		
 		redirectAttributes.addFlashAttribute("successMsgs",getSuccessMsgs(genreForm.getId()!=null));

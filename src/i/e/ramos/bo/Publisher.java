@@ -24,6 +24,10 @@ public class Publisher {
 		this.name = name;
 	}
 	
+	public String toString() {
+		return name;
+	}
+	
 	
 	
 }
