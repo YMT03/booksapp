@@ -16,8 +16,105 @@
 <body>
 	<jsp:include page="../static/header.jsp" />
 	<div class="container theme-showcase" role="main">
+		
+		<!-- CAROUSEL -->
+		
+		<div id="carouselIndicators" class="carousel slide col-md-8 mt-5 mb-5 mx-auto" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner shadow">
+    <div class="carousel-item active row">
+		<div class="col-md-4">
+			<img class="d-block w-100" src="${ urlImages }/hp1.jpeg" alt="First slide"/>
+		</div>
+		<div class="col-md-8 float-right mt-3">
+			<div class="h2 mx-auto col-md-10 title1">
+				<p>Harry Potter</p>
+			</div>			
+		</div>
+		<div class="col-md-8 float-right mt-3 title2">
+				<p>Autor: Joanne Rowling</p>		
+		</div>
+		<div class="col-md-8 float-right mt-1 title2">
+				<p>Genero: Ficcion, Fantasia, Drama, Thriller, Misterio</p>
+		</div>
+		<div class="col-md-8 float-right mt-1 title2">
+			<div class="truncate">La historia comienza con la celebración del mundo mágico. Durante muchos años, había siienza con la celebración 
+del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo 
+mágicoienza con la celebración del mundo mágicoienza con la celebración del mundo mágicodo aterrorizado por el malvado mago Lord 
+Voldemort. La noche del 31 de octubre, mató a Lily y James Potter. Sin embargo, cuando intenta matar a su hijo de 1 año, Harry, la 
+maldición asesina Avada Kedavra se vuelve sobre sí mismo. El cuerpo de Voldemort resulta destruido, pero él sobrevive: no está 
+muerto ni vivo. Por su parte, a Harry solo le queda una cicatriz con forma de rayo en la frente que es el único remanente físico de 
+la maldición de Voldemort. Harry es el único sobreviviente de la maldición asesina...	
+			</div>
+				
+		</div>
+    </div>
+		    <div class="carousel-item row">
+		<div class="col-md-4">
+			<img class="d-block w-100" src="${ urlImages }/lordofrings.jpg" alt="First slide"/>
+		</div>
+		<div class="col-md-8 float-right mt-3">
+			<div class="h2 mx-auto col-md-10 title1">
+				<p>Señor de los anillos</p>
+			</div>			
+		</div>
+		<div class="col-md-8 float-right mt-3 title2">
+				<p>Autor: Christopher Tolkien</p>		
+		</div>
+		<div class="col-md-8 float-right mt-1 title2">
+				<p>Genero: Ficcion, Aventura, Fantasia</p>
+		</div>
+		<div class="col-md-8 float-right mt-1 title2">
+			<div class="truncate">En la Tierra Media, el Señor Oscuro Saurón ordenó a los Elfos que forjaran los Grandes Anillos de Poder. Tres para los reyes Elfos, siete para los Señores Enanos, y nueve para los Hombres Mortales. Pero Saurón también forjó, en secreto, el Anillo Único, que tiene el poder de esclavizar toda la Tierra Media. Con la ayuda de sus amigos y de valientes aliados, el joven hobbit Frodo emprende un peligroso viaje con la misión de destruir el Anillo Único. Pero el malvado Sauron ordena la persecución del grupo, compuesto por Frodo y sus leales amigos hobbits, un mago, un hombre, un elfo y un enano. La misión es casi suicida pero necesaria, pues si Sauron con su ejército de orcos lograra recuperar el Anillo, sería el final de la Tierra Media. 
+			</div>
+				
+		</div>
+    </div>
+	
+	<div class="carousel-item row">
+		<div class="col-md-4">
+			<img class="d-block w-100" src="${ urlImages }/knight.jpg" alt="First slide"/>
+		</div>
+		<div class="col-md-8 float-right mt-3">
+			<div class="h2 mx-auto col-md-10 title1">
+				<p>El caballero de la armadura oxidada</p>
+			</div>			
+		</div>
+		<div class="col-md-8 float-right mt-3 title2">
+				<p>Autor: Robert Fisher</p>		
+		</div>
+		<div class="col-md-8 float-right mt-1 title2">
+				<p>Genero: Ficcion, Romantisismo, Fantasia, Autoayuda</p>
+		</div>
+		<div class="col-md-8 float-right mt-1 title2">
+			<div class="truncate">El protagonista, un caballero deslumbrado por el brillo de su armadura, a pesar de ser bueno, generoso y amoroso, no consigue comprender y valorar con profundidad las cosas que suceden a su alrededor. Su armadura se va oxidando hasta que deja de brillar y no puede quitársela.
+			</div>
+				
+		</div>
+    </div>
+	
+  </div>
+  <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-		<br> <br>
+<!-- END CAROUSEL -->
 		
 		<div class="row">
 		<div class="col-11 h4">Listado de Libros</div>
