@@ -5,6 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <spring:url value="/books/form" var="formURL"></spring:url>
 <spring:url value="/books/remove" var="removeURL"></spring:url>
+<spring:url value="/resources/img" var="urlImages"></spring:url>
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,11 @@
 	<div class="container theme-showcase" role="main">
 
 		<br> <br>
-		<h3>Listado de Libros</h3>
+		
+		<div class="row">
+		<div class="col-11 h4">Listado de Libros</div>
+		<div class="col-1"><a href="/app/books/form"><i class="fas fa-plus-square"></i></a></div>
+		</div>
 
 		<!-- SUCCESS MSGS. WHEN CREATING A NEW BOOK  -->
 		<c:if test="${successMsgs!=null}">
@@ -31,32 +36,51 @@
 		</c:if>
 		<!-- /SUCCESS MSGS   -->
 
-		<a href="${ formURL }"><button type="button"
-				class="btn btn-primary">Nuevo</button></a><br>
+		<!-- BOOKS -->
 
-		<!-- TABLE  -->
-		<div class="table-responsive">
-			<table class="table table-hover table-striped table-bordered">
-				<tr>
-					<th>Titulo</th>
-					<th>Autor</th>
-					<th>Opciones</th>
-				</tr>
-				<c:forEach items="${books}" var="book">
-					<tr>
-						<td>${book.title}</td>
-						<td>${book.author.name}</td>
-						<td><a href="${ formURL }?id=${book.id}"><i
+		<div class="books-container mt-4">
+		<c:forEach items="${ books }" var="book">
+			<div class="book-row row mt-2 mb-4">
+				<div class="col-2">
+						<img src="${ urlImages }/${book.image }" alt="${ book.title }" title="${ book.title }">
+				</div>
+				<div class="info-container col-4">
+						<div class="row">Titulo: ${ book.title }</div>
+						<div class="row">Autor: ${ book.author }</div>
+						<div class="row">Editorial: ${ book.publisher }</div>						
+						<div class="row">Fecha de publicacion: ${ book.publicationDate }</div>	
+						<div class="row">Generos: 
+							<c:forEach items="${book.genre}" var="oneGenre" varStatus="iteration">
+								
+								<c:if test="${ !iteration.last }">
+								${ oneGenre },
+								</c:if>
+								<c:if test="${ iteration.last }">
+								${ oneGenre }
+								</c:if>
+								
+							</c:forEach>
+						</div>
+				</div>
+				<div class="info2-container col-6">
+						<div class="row">Rating: ${ book.rating }</div>
+						<div class="row">Sinopsis: ${ book.synopsis }</div>
+				</div>
+
+				<div class="col-2">
+					<div class="col-8 mx-auto">
+							<a href="${ formURL }?id=${book.id}"><i
 								class="fas fa-edit"></i></a> <a href="#"><i
 								class="fas fa-trash-alt" data-toggle="modal"
 								data-target="#modalConfirm"
-								data-href="${ removeURL }?id=${book.id}"></i></a></td>
-					</tr>
-				</c:forEach>
+								data-href="${ removeURL }?id=${book.id}"></i></a>
+					</div>
+						
+				</div>
 
-			</table>
-		</div>
-		<!-- /TABLE  -->
+		</div></c:forEach>
+		
+	</div>
 
 
 

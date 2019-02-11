@@ -15,3 +15,20 @@ body{
 .notificationUL{
 	margin-bottom: 0
 }
+
+/* SECCION LIBROS */
+.books-container img{
+    height: 10rem;
+    width: 7.5rem;
+    border-radius: 0.3rem;
+}
+
+.book-row{
+    height: 12rem;
+}
+
+/* cambiar mas adelante*/
+.books-container .info2-container{
+    height: 10rem;
+    overflow: -webkit-paged-y;
+}
