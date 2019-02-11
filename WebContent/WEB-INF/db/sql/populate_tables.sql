@@ -47,8 +47,6 @@ INSERT INTO book_genre(book_id, genre_id) VALUES (1, 9);
 INSERT INTO book_genre(book_id, genre_id) VALUES (1, 10);
 INSERT INTO book_genre(book_id, genre_id) VALUES (1, 11);
 INSERT INTO book_genre(book_id, genre_id) VALUES (1, 12);
-INSERT INTO book_genre(book_id, genre_id) VALUES (1, 1);
-INSERT INTO book_genre(book_id, genre_id) VALUES (1, 1);
 INSERT INTO book_genre(book_id, genre_id) VALUES (2, 7);
 INSERT INTO book_genre(book_id, genre_id) VALUES (2, 12);
 INSERT INTO book_genre(book_id, genre_id) VALUES (4, 5);
@@ -61,3 +59,9 @@ INSERT INTO comment(id, book_id, username, content ) VALUES (1,1,'Pancho','Me pa
 INSERT INTO comment(id, book_id, username, content ) VALUES (2,1,'Vanina','Alto libro guacho');
 INSERT INTO comment(id, book_id, username, content ) VALUES (3,1,'Alberto','Recomendable');
 INSERT INTO comment(id, book_id, username, content ) VALUES (4,2,'Mariana','No apto para menores. La trama es atrapante');
+
+-- Banners
+
+INSERT INTO banner(id, book_id) VALUES (1,1);
+INSERT INTO banner(id, book_id) VALUES (2,2);
+INSERT INTO banner(id, book_id) VALUES (3,4);

@@ -26,6 +26,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				<value>i.e.ramos.bo.Publisher</value>
 				<value>i.e.ramos.bo.Book</value>
 				<value>i.e.ramos.bo.Comment</value>
+				<value>i.e.ramos.bo.Banner</value>
 			</list>
 		</property>
 

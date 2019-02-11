@@ -30,7 +30,7 @@ body{
 /* cambiar mas adelante*/
 .books-container .info2-container{
     height: 10rem;
-    overflow: -webkit-paged-y;
+    overflow: overlay;
 }
 
 /* CAROUSEL */
@@ -42,6 +42,7 @@ body{
 }
 
 .carousel-inner{
+	height: 20rem;
     border-radius: 1.5rem;
 	background-image: linear-gradient(-180deg, #efe6e60d, #9a9a9a);
 }

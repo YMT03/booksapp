@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import i.e.ramos.bo.Author;
+import i.e.ramos.bo.Banner;
 import i.e.ramos.bo.Book;
 import i.e.ramos.bo.Genre;
 import i.e.ramos.constants.messages.SuccessMsg;
 import i.e.ramos.controller.form.BookForm;
 import i.e.ramos.service.interfaces.AuthorService;
+import i.e.ramos.service.interfaces.BannerService;
 import i.e.ramos.service.interfaces.BookService;
 import i.e.ramos.service.interfaces.GenreService;
 import i.e.ramos.service.interfaces.PublisherService;
@@ -42,10 +44,13 @@ public class BookController {
 	PublisherService publisherService;
 	@Autowired
 	GenreService genreService;
+	@Autowired
+	BannerService bannerService;
 
 	@GetMapping("")
 	public String home(Model model) {
 		model.addAttribute("books",bookService.getAllBooks());
+		model.addAttribute("banners",bannerService.getAllBanners());
 		return "books/home";
 	}
 	
