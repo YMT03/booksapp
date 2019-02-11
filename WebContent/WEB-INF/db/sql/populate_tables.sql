@@ -11,6 +11,10 @@ INSERT INTO genre (id, name) VALUES (9, 'Novela de formacion');
 INSERT INTO genre (id, name) VALUES (10, 'Misterio');
 INSERT INTO genre (id, name) VALUES (11, 'Thriller');
 INSERT INTO genre (id, name) VALUES (12, 'Fantasia');
+INSERT INTO genre (id, name) VALUES (13, 'Autoayuda');
+INSERT INTO genre (id, name) VALUES (14, 'Motivacion');
+INSERT INTO genre (id, name) VALUES (15, 'Realismo magico');
+INSERT INTO genre (id, name) VALUES (16, 'Humor');
 
 -- Editoriales
 INSERT INTO publisher(id,name) VALUES (1, 'Eterna');
@@ -49,6 +53,11 @@ INSERT INTO book_genre(book_id, genre_id) VALUES (1, 11);
 INSERT INTO book_genre(book_id, genre_id) VALUES (1, 12);
 INSERT INTO book_genre(book_id, genre_id) VALUES (2, 7);
 INSERT INTO book_genre(book_id, genre_id) VALUES (2, 12);
+INSERT INTO book_genre(book_id, genre_id) VALUES (3, 12);
+INSERT INTO book_genre(book_id, genre_id) VALUES (3, 13);
+INSERT INTO book_genre(book_id, genre_id) VALUES (3, 14);
+INSERT INTO book_genre(book_id, genre_id) VALUES (3, 15);
+INSERT INTO book_genre(book_id, genre_id) VALUES (3, 16);
 INSERT INTO book_genre(book_id, genre_id) VALUES (4, 5);
 INSERT INTO book_genre(book_id, genre_id) VALUES (4, 1);
 INSERT INTO book_genre(book_id, genre_id) VALUES (4, 6);
