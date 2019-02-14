@@ -35,8 +35,7 @@ body{
 
 /* CAROUSEL */
 .carousel-inner img{
-	height:25vw;
-	width:auto;
+	height:20rem;
 	float:left;
 	
 }
@@ -60,7 +59,7 @@ body{
 }
 
 .carousel-inner .title1{
-	text-shadow:3px 2px 5px #17161669;
+	text-shadow:0.25rem 0.2rem 0.4rem #17161669;
     text-align: center;
 }
 
@@ -72,4 +71,14 @@ body{
 
 .truncate{
 	font-style: italic;
+}
+
+/* BOOK FORM */
+form img{
+	height:20rem;
+	width: 13.5rem;
+}
+
+#upload-img-btn{
+	width: 13.5rem;
 }

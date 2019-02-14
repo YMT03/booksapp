@@ -19,11 +19,18 @@
 		
 		<!-- CAROUSEL -->
 	<c:if test="${ not empty banners}">
-	<div id="carouselIndicators" class="carousel slide col-md-8 mt-5 mb-2 mx-auto" data-ride="carousel" >
+	<div id="carouselIndicators" class="carousel slide col-md-8 mt-5 mb-2 mx-auto" data-ride="carousel"  >
   <ol class="carousel-indicators">
-    <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselIndicators" data-slide-to="2"></li>
+  <c:forEach items="${ banners }" var="banner" varStatus="iteration">
+   <c:choose>
+  	<c:when test="${ iteration.first }">
+  		<li data-target="#carouselIndicators" data-slide-to="${ iteration }" class="active"></li>
+  	</c:when>
+  	<c:otherwise>
+  		<li data-target="#carouselIndicators" data-slide-to="${ iteration }"></li>
+  	</c:otherwise>
+  </c:choose>
+  </c:forEach>
   </ol>
   <div class="carousel-inner shadow">
   <c:forEach items="${ banners }" var="banner" varStatus="iteration">
